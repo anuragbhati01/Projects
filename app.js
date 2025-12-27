@@ -66,10 +66,6 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-// app.get("/", (req, res) => {
-//   res.send("Listing website index route");
-// });
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -103,7 +99,11 @@ app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 
-app.all("/*splat", (req, res, next) => {
+app.get("/", (req, res) => {
+  res.redirect("/listings")
+});
+
+app.use( (req, res, next) => {
   next(new ExpressError(404, "Page not Found"));
 });
 
