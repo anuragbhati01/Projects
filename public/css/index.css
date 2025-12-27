@@ -1,0 +1,113 @@
+/* ============================= */
+/* FILTERS CONTAINER */
+/* ============================= */
+
+#filters {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+}
+
+/* Hide scrollbar for clean UI */
+#filters::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================= */
+/* INDIVIDUAL FILTER */
+/* ============================= */
+
+.filter {
+  flex: 0 0 auto; /* prevents shrinking */
+  margin-top: 1.5rem;
+  text-align: center;
+  color: black;
+  opacity: 0.7;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.filter i {
+  font-size: 1.2rem;
+}
+
+.filter p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ============================= */
+/* ACTIVE FILTER */
+/* ============================= */
+
+.filter.active {
+  opacity: 1;
+  border-bottom: 2px solid #000;
+  transform: scale(1.05);
+}
+
+.filter.active i {
+  color: #000;
+}
+
+/* ============================= */
+/* TAX TOGGLE */
+/* ============================= */
+
+.tax-toogle {
+  flex: 0 0 auto;
+  margin-left: auto;
+  margin-top: 1.5rem;
+}
+
+.tax-toogle label {
+  font-size: 0.85rem;
+}
+
+/* ============================= */
+/* RESPONSIVE FIX */
+/* ============================= */
+
+@media (max-width: 768px) {
+  #filters {
+    gap: 1.25rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .filter {
+    margin-top: 1rem;
+  }
+
+  .filter i {
+    font-size: 1.1rem;
+  }
+
+  .filter p {
+    font-size: 0.75rem;
+  }
+
+  .tax-toogle {
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+
+.tax-info{
+  display: none;
+}
+
+.tax-toogle{
+  border: 1px solid gray;
+  border-radius: 1rem;
+  padding: 0.75rem;
+}

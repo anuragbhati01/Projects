@@ -1,0 +1,110 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div id="filters">
+  <a
+    href="/listings?category=trending"
+    class="filter <%= category === 'trending' ? 'active' : '' %>"
+  >
+    <i class="fa-solid fa-fire"></i>
+    <p>Trending</p>
+  </a>
+  <a
+    href="/listings?category=rooms"
+    class="filter <%= category === 'rooms' ? 'active' : '' %>"
+  >
+    <i class="fa-solid fa-bed"></i>
+    <p>Rooms</p>
+  </a>
+  <a
+    href="/listings?category=mountains"
+    class="filter <%= category === 'mountains' ? 'active' : '' %>"
+  >
+    <i class="fa-solid fa-mountain"></i>
+    <p>Mountains</p>
+  </a>
+  <a
+    href="/listings?category=cities"
+    class="filter <%= category === 'cities' ? 'active' : '' %>"
+  >
+    <i class="fa-solid fa-mountain-city"></i>
+    <p>Iconic Cities</p>
+  </a>
+  <a
+    href="/listings?category=castles"
+    class="filter <%= category === 'castles' ? 'active' : '' %>"
+  >
+    <i class="fa-brands fa-fort-awesome"></i>
+    <p>Castles</p>
+  </a>
+  <a
+    href="/listings?category=pools"
+    class="filter <%= category === 'pools' ? 'active' : '' %>"
+  >
+    <i class="fa-solid fa-person-swimming"></i>
+    <p>Pools</p>
+  </a>
+  <a
+    href="/listings?category=camping"
+    class="filter <%= category === 'camping' ? 'active' : '' %>"
+  >
+    <i class="fa-solid fa-campground"></i>
+    <p>Camping</p>
+  </a>
+  <a 
+    href="/listings?category=farms"
+    class="filter  <%= category === 'farms' ? 'active' : '' %>"
+  >
+    <i class="fa-solid fa-tractor"></i>
+    <p>Farms</p>
+  </a>
+  <a
+    href="/listings?category=artic"
+    class="filter <%= category === 'artic' ? 'active' : '' %> "
+  >
+    <i class="fa-solid fa-snowflake"></i>
+    <p>Artic</p>
+  </a>
+
+  <div class="tax-toogle">
+    <div class="form-check-reverse form-switch">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        role="switch"
+        id="flexSwitchCheckDefault"
+      />
+      <label for="flexSwitchCheckDefault" class="form-check-label">Display total after taxes</label>
+    </div>
+  </div>
+</div>
+<br />
+<!-- <form action="/listings/new" method="get">
+    <button class="btn btn-outline-secondary">Create new listing</button>
+  </form> -->
+<br />
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
+  <% for(listing of allListings) { %>
+  <a href="/listings/<%= listing._id %>" class="listing-link">
+    <div class="card listing-card">
+      <img
+        src="<%= listing.image.url %>"
+        class="card-img-top"
+        alt="listing-image"
+        style="height: 20rem"
+      />
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= listing.title %></b>
+          <br />
+          &#8377; <%= listing.price.toLocaleString("en-IN")%> /night
+          <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+
+
+<script src="/js/index.js"></script>
